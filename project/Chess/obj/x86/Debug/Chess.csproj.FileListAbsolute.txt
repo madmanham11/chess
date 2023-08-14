@@ -1,0 +1,9 @@
+C:\Users\Philip Smith\Documents\GitHub\chess\bin\debug\Chess.exe
+C:\Users\Philip Smith\Documents\GitHub\chess\bin\debug\Chess.pdb
+C:\Users\Philip Smith\Documents\GitHub\chess\project\Chess\obj\x86\Debug\Chess.csproj.AssemblyReference.cache
+C:\Users\Philip Smith\Documents\GitHub\chess\project\Chess\obj\x86\Debug\Chess.MainForm.resources
+C:\Users\Philip Smith\Documents\GitHub\chess\project\Chess\obj\x86\Debug\Chess.Properties.Resources.resources
+C:\Users\Philip Smith\Documents\GitHub\chess\project\Chess\obj\x86\Debug\Chess.csproj.GenerateResource.cache
+C:\Users\Philip Smith\Documents\GitHub\chess\project\Chess\obj\x86\Debug\Chess.csproj.CoreCompileInputs.cache
+C:\Users\Philip Smith\Documents\GitHub\chess\project\Chess\obj\x86\Debug\Chess.exe
+C:\Users\Philip Smith\Documents\GitHub\chess\project\Chess\obj\x86\Debug\Chess.pdb

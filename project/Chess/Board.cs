@@ -134,43 +134,134 @@ namespace Chess
                 SetPiece(Piece.PAWN, Player.BLACK, i, 6);
             }
 
-            SetPiece(Piece.ROOK, Player.WHITE, 0, 0);
-            SetPiece(Piece.ROOK, Player.WHITE, 7, 0);
-            SetPiece(Piece.ROOK, Player.BLACK, 0, 7);
-            SetPiece(Piece.ROOK, Player.BLACK, 7, 7);
-
-            SetPiece(Piece.KNIGHT, Player.WHITE, 1, 0);
-            SetPiece(Piece.KNIGHT, Player.WHITE, 6, 0);
-            SetPiece(Piece.KNIGHT, Player.BLACK, 1, 7);
-            SetPiece(Piece.KNIGHT, Player.BLACK, 6, 7);
-
-            SetPiece(Piece.BISHOP, Player.WHITE, 2, 0);
-            SetPiece(Piece.BISHOP, Player.WHITE, 5, 0);
-            SetPiece(Piece.BISHOP, Player.BLACK, 2, 7);
-            SetPiece(Piece.BISHOP, Player.BLACK, 5, 7);
-
-            SetPiece(Piece.KING, Player.WHITE, 4, 0);
-            SetPiece(Piece.KING, Player.BLACK, 4, 7);
-            Kings[Player.WHITE] = new position_t(4, 0);
-            Kings[Player.BLACK] = new position_t(4, 7);
-            SetPiece(Piece.QUEEN, Player.WHITE, 3, 0);
-            SetPiece(Piece.QUEEN, Player.BLACK, 3, 7);
-        }
-
-        public void SetPiece(Piece piece, Player player, int letter, int number)
-        {
-            // set grid values
-            Grid[number][letter].piece = piece;
-            Grid[number][letter].player = player;
-
-            // add piece to list
-            Pieces[player].Add(new position_t(letter, number));
-
-            // update king position
-            if (piece == Piece.KING)
+            int[] taken = new int[8];
+            int prev1 = 0;
+            int prev2 = 0;
+            int prev3 = 0;
+            int prev4 = 0;
+            int prev5 = 0;
+            int prev6 = 0;
+            Random number = new Random();
+            for (int i = 0; i <= 4; i++)
             {
-                Kings[player] = new position_t(letter, number);
+
+                if (i == 1)
+                {
+
+                    SetPiece(Piece.KING, Player.WHITE, 4, 0);
+                    SetPiece(Piece.KING, Player.BLACK, 4, 7);
+                    Kings[Player.WHITE] = new position_t(4, 0);
+                    Kings[Player.BLACK] = new position_t(4, 7);
+
+
+                    int num;
+                    int num2;
+                    do
+                    {
+                        num = number.Next(0, 8);
+                        num2 = number.Next(0, 8);
+
+                    } while (num == num2 || num == 4 || num2 == 4);
+                    SetPiece(Piece.ROOK, Player.WHITE, num, 0);
+
+                    SetPiece(Piece.ROOK, Player.WHITE, num2, 0);
+
+                    SetPiece(Piece.ROOK, Player.BLACK, num, 7);
+
+                    SetPiece(Piece.ROOK, Player.BLACK, num2, 7);
+                    prev1 = num;
+                    prev2 = num2;
+                }
+                if (i == 2)
+                {
+
+                    int num;
+                    int num2;
+                    do
+                    {
+                        num = number.Next(0, 8);
+                        num2 = number.Next(0, 8);
+
+                    } while (num == 4 || num2 == 4 || num == prev1 || num2 == prev2 || num == num2 || num2 == prev1 || num == prev2);
+                    SetPiece(Piece.KNIGHT, Player.WHITE, num, 0);
+                    SetPiece(Piece.KNIGHT, Player.WHITE, num2, 0);
+                    SetPiece(Piece.KNIGHT, Player.BLACK, num, 7);
+                    SetPiece(Piece.KNIGHT, Player.BLACK, num2, 7);
+                    prev3 = num;
+                    prev4 = num2;
+                }
+                if (i == 3)
+                {
+
+                    int num;
+                    int num2;
+                    do
+                    {
+                        num = number.Next(0, 8);
+                        num2 = number.Next(0, 8);
+
+                    } while (num == 4 || num2 == 4 || num == prev1 || num2 == prev2 || num == prev3 || num2 == prev4 || num == num2 || num2 == prev1 || num2 == prev3 || num == prev2 || num == prev4);
+                    SetPiece(Piece.BISHOP, Player.WHITE, num, 0);
+                    SetPiece(Piece.BISHOP, Player.WHITE, num2, 0);
+                    SetPiece(Piece.BISHOP, Player.BLACK, num, 7);
+                    SetPiece(Piece.BISHOP, Player.BLACK, num2, 7);
+                    prev5 = num;
+                    prev6 = num2;
+
+                }
+                if (i == 4)
+                {
+
+                    int num;
+
+                    do
+                    {
+                        num = number.Next(0, 8);
+
+                    } while (num == 4 || num == prev1 || num == prev3 || num == prev2 || num == prev4 || num == prev5 || num == prev6);
+                    SetPiece(Piece.QUEEN, Player.WHITE, num, 0);
+                    SetPiece(Piece.QUEEN, Player.BLACK, num, 7);
+
+
+                }
+            }
+                //SetPiece(Piece.ROOK, Player.WHITE, 0, 0);
+                //SetPiece(Piece.ROOK, Player.WHITE, 7, 0);
+                //SetPiece(Piece.ROOK, Player.BLACK, 0, 7);
+                //SetPiece(Piece.ROOK, Player.BLACK, 7, 7);
+
+                //SetPiece(Piece.KNIGHT, Player.WHITE, 1, 0);
+                //SetPiece(Piece.KNIGHT, Player.WHITE, 6, 0);
+                //SetPiece(Piece.KNIGHT, Player.BLACK, 1, 7);
+                //SetPiece(Piece.KNIGHT, Player.BLACK, 6, 7);
+
+                /* SetPiece(Piece.BISHOP, Player.WHITE, 2, 0);
+                 SetPiece(Piece.BISHOP, Player.WHITE, 5, 0);
+                 SetPiece(Piece.BISHOP, Player.BLACK, 2, 7);
+                 SetPiece(Piece.BISHOP, Player.BLACK, 5, 7);
+
+                 SetPiece(Piece.KING, Player.WHITE, 4, 0);
+                 SetPiece(Piece.KING, Player.BLACK, 4, 7);
+                 Kings[Player.WHITE] = new position_t(4, 0);
+                 Kings[Player.BLACK] = new position_t(4, 7);
+                 SetPiece(Piece.QUEEN, Player.WHITE, 3, 0);
+                 SetPiece(Piece.QUEEN, Player.BLACK, 3, 7);*/
+            }
+
+            public void SetPiece(Piece piece, Player player, int letter, int number)
+            {
+                // set grid values
+                Grid[number][letter].piece = piece;
+                Grid[number][letter].player = player;
+
+                // add piece to list
+                Pieces[player].Add(new position_t(letter, number));
+
+                // update king position
+                if (piece == Piece.KING)
+                {
+                    Kings[player] = new position_t(letter, number);
+                }
             }
         }
     }
-}
